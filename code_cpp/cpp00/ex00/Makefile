@@ -38,4 +38,4 @@ testcase:
 				./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
 				./megaphone
 
-.PHONY:			all clean fclean re test
+.PHONY:			all clean fclean re testcase
