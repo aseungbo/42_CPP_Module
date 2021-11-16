@@ -1,6 +1,7 @@
-TARGET			= TARGET
+TARGET			= zombie
 
 SRCS			= main.cpp \
+					Zombie.cpp \
 					
 OBJS			= $(SRCS:.cpp=.o)
 
