@@ -1,12 +1,11 @@
 #include "Zombie.hpp"
+#include <iostream>
 
 int main()
 {
-    Zombie zom;
+    std::string name[3] = {"James", "john", "Bryan"};
 
-    std::string name = "James";
-
-    zom.set_name(name);
-    zom.announce();
+    for (int i = 0; i < 3; i++)
+        randomChump(name[i]);
     return(0);
 }

@@ -7,7 +7,7 @@ Zombie::Zombie(void)
 
 Zombie::~Zombie(void)
 {
-    ;
+    std::cout << Zombie::get_name() << " is gone to Blackhole :(" << std::endl;
 }
 
 std::string Zombie::get_name(void)

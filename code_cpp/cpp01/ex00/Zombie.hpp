@@ -4,6 +4,7 @@
 # include <string>
 # include <iostream>
 
+
 class Zombie
 {
     private:
@@ -16,5 +17,8 @@ class Zombie
         Zombie(void);
         ~Zombie(void);
 };
+
+Zombie* newZombie( std::string name );
+void    randomChump( std::string name );
 
 #endif
