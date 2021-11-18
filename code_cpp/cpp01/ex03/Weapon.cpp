@@ -1,7 +1,8 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(/* args */)
+Weapon::Weapon(std::string str)
 {
+    this->setType(str);
     std::cout << "✅ Weapon was created" << std::endl;
 }
 
