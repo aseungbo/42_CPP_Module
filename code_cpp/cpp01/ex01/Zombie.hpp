@@ -6,7 +6,7 @@
 /*   By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:17:56 by seuan             #+#    #+#             */
-/*   Updated: 2021/11/18 14:18:16 by seuan            ###   ########.fr       */
+/*   Updated: 2021/11/18 14:45:52 by seuan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Zombie
 };
 
 Zombie* newZombie( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 void    randomChump( std::string name );
 
 #endif

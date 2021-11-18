@@ -6,7 +6,7 @@
 #    By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/18 14:17:18 by seuan             #+#    #+#              #
-#    Updated: 2021/11/18 14:17:18 by seuan            ###   ########.fr        #
+#    Updated: 2021/11/18 14:31:12 by seuan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,13 @@ TARGET			= zombie
 
 SRCS			= main.cpp \
 					Zombie.cpp \
-					newZombie.cpp \
-					randomChump.cpp \
+					ZombieHorde.cpp \
 					
 OBJS			= $(SRCS:.cpp=.o)
 
 CLA				= clang++
 RM				= rm -f
 CLAFLAGS		= -Wall -Wextra -Werror -std=c++98
-
 
 all:			$(TARGET)
 
