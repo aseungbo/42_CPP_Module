@@ -16,4 +16,6 @@ int main()
     // 2. Print string
     std::cout << "*stringPTR: "<< *stringPTR << std::endl;
     std::cout << "stringREF: " << stringREF << std::endl;
+
+    return (0);
 }
