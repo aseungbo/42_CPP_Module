@@ -2,26 +2,26 @@
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    std::cout << "FragTrap constructor <" << get_Name() << "> called" << std::endl;
-    set_Hp(100);
-    set_Ep(100);
-    set_Ad(30);
+    _Hp = 100;
+    _Ep = 100;
+    _Ad = 30;
+    std::cout << "FragTrap constructor <" << _Name << "> called" << std::endl;
 }
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-    std::cout << "FragTrap constructor called" << std::endl;
-    set_Hp(100);
-    set_Ep(100);
-    set_Ad(30);
+    _Hp = 100;
+    _Ep = 100;
+    _Ad = 30;
+    std::cout << "FragTrap constructor <" << _Name << "> called" << std::endl;
 }
 
 FragTrap::~FragTrap(void)
 {
-    std::cout << "FragTrap descructor <" << get_Name() << "> called" << std::endl;
+    std::cout << "FragTrap descructor <" << _Name << "> called" << std::endl;
 }
 
 void    FragTrap::highFivesGuys(void)
 {
-    std::cout << get_Name() << " request high fives!" << std::endl;
+    std::cout << _Name << " request high fives!" << std::endl;
 }

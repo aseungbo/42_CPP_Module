@@ -3,23 +3,23 @@
 int main()
 {
     ScavTrap a("a");
-    ScavTrap b;
+    ScavTrap b("b");
 
-    // std::cout << std::endl;
+    std::cout << std::endl;
     
-    // a.attack("b");
-    // b.takeDamage(a.get_Ad());
-    // a.attack("b");
-    // b.takeDamage(a.get_Ad());
-    // a.attack("b");
-    // b.takeDamage(a.get_Ad());
-    // a.attack("b");
-    // b.takeDamage(a.get_Ad());
+    a.attack("b");
+    b.takeDamage(20);
+    a.attack("b");
+    b.takeDamage(20);
+    a.attack("b");
+    b.takeDamage(20);
+    b.guardGate();
+    a.attack("b");
+    b.takeDamage(20);
 
-    // std::cout << std::endl;
-    
-    // b.guardGate();
-    // b.guardGate();
+    std::cout << std::endl;
+    b.guardGate();
+    b.guardGate();
     
     std::cout << std::endl;
     return 0;
