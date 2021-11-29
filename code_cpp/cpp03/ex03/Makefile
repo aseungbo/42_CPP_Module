@@ -11,7 +11,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CLA				= clang++
 RM				= rm -f
-CLAFLAGS		= -Wall -Wextra -Werror -std=c++98
+CLAFLAGS		= -Wall -Wextra -Werror -Wshadow  -Wno-shadow -std=c++98
 
 all:			$(TARGET)
 
