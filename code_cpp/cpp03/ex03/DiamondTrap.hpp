@@ -12,7 +12,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
         DiamondTrap(void);
         ~DiamondTrap(void);
         void whoAmI();
-    
+
     private:
         std::string _Name;
 };

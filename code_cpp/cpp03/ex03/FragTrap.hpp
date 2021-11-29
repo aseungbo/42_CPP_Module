@@ -10,6 +10,7 @@ class FragTrap : virtual public ClapTrap
         FragTrap(void);
         ~FragTrap(void);
         void highFivesGuys(void);
+
     private:
 };
 

@@ -28,5 +28,6 @@ int main()
     b.takeDamage(a.get_Ad());
     a.attack("b");
     b.takeDamage(a.get_Ad());
+    std::cout << std::endl;
     return (0);
 }

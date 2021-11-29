@@ -3,6 +3,7 @@
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name +  "_clap_name")
 {
     _Name = name;
+    // FragTrap과 ScavTrap의 세팅 값을 가져오는 방법 찾아보기
     set_Hp(100); // 100
     set_Ep(50); // 50
     set_Ad(30); // 30

@@ -3,17 +3,17 @@
 ClapTrap::ClapTrap(std::string name)
 {
     _Name = name;
-    _Hit_points = 10;
-    _Energy_points = 10;
-    _Attack_damage = 0;
+    _Hp = 10;
+    _Ep = 10;
+    _Ad = 0;
     std::cout << "ClapTrap constructor <" << get_Name() << "> called" << std::endl;
 }
 
 ClapTrap::ClapTrap(void)
 {
-    _Hit_points = 10;
-    _Energy_points = 10;
-    _Attack_damage = 0;
+    _Hp = 10;
+    _Ep = 10;
+    _Ad = 0;
     std::cout << "ClapTrap constructor called" << std::endl;
 }
 
@@ -30,16 +30,16 @@ void ClapTrap::attack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    _Hit_points -= amount;
+    _Hp -= amount;
     std::cout << "ClapTrap " << get_Name() << " take " << amount << " damage. "
-    << "Now, ClapTrap " << get_Name() << " Hit_points: " << get_Hp() << std::endl;
+    << "Now, ClapTrap " << get_Name() << " Hp: " << get_Hp() << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    _Hit_points += amount;;
-    std::cout << "ClapTrap " << get_Name() << " repaired " << amount << " Hit_points. "
-    << "Now, ClapTrap " << get_Name() << " Hit_points: " << get_Hp() << std::endl;
+    _Hp += amount;;
+    std::cout << "ClapTrap " << get_Name() << " repaired " << amount << " Hp. "
+    << "Now, ClapTrap " << get_Name() << " Hp: " << get_Hp() << std::endl;
 }
 
 void ClapTrap::set_Name(std::string name)
@@ -49,17 +49,17 @@ void ClapTrap::set_Name(std::string name)
 
 void ClapTrap::set_Hp(int amount)
 {
-    _Hit_points = amount;
+    _Hp = amount;
 }
 
 void ClapTrap::set_Ep(int amount)
 {
-    _Energy_points = amount;
+    _Ep = amount;
 }
 
 void ClapTrap::set_Ad(int amount)
 {
-    _Attack_damage = amount;
+    _Ad = amount;
 }
 
 std::string ClapTrap::get_Name(void)
@@ -69,15 +69,15 @@ std::string ClapTrap::get_Name(void)
 
 int ClapTrap::get_Hp(void)
 {
-    return (_Hit_points);
+    return (_Hp);
 }
 
 int ClapTrap::get_Ep(void)
 {
-    return (_Energy_points);
+    return (_Ep);
 }
 
 int ClapTrap::get_Ad(void)
 {
-    return (_Attack_damage);
+    return (_Ad);
 }

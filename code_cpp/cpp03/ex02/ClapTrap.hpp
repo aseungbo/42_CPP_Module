@@ -23,9 +23,9 @@ class ClapTrap
 
     private:
         std::string _Name;
-        int _Hit_points;
-        int _Energy_points;
-        int _Attack_damage;  
+        int _Hp;
+        int _Ep;
+        int _Ad;  
 };
 
 
