@@ -3,9 +3,10 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-NAME = a.out
+NAME = convert
 
 SRC =	main.cpp \
+		ScalarConversion.cpp \
 
 SRC_DIR = ./src/
 SRCS = $(addprefix $(SRC_DIR),$(SRC))
