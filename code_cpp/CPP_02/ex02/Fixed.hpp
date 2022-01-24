@@ -25,6 +25,7 @@ class Fixed
         bool operator <= (const Fixed& fix);
         bool operator == (const Fixed& fix);
         bool operator != (const Fixed& fix);
+        // -- 구현해야함.
         Fixed& operator ++ (void);
         Fixed operator ++ (int);
         float operator + (const Fixed& fix);

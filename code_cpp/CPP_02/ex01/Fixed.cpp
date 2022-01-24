@@ -10,20 +10,20 @@ Fixed::Fixed( const Fixed& fix )
 
 Fixed::Fixed(void)
 {
-    this->setRawBits(0);
     std::cout << "Default constructor called" << std::endl;
+    this->setRawBits(0);
 }
 
 Fixed::Fixed( int i )
 {
-    this->_fixed_val = i << 8;
     std::cout << "Int constructor called" << std::endl;
+    this->_fixed_val = i << 8;
 }
 
 Fixed::Fixed( float f )
 {
-    this->_fixed_val = roundf(f * (1 << 8));
     std::cout << "Float constructor called" << std::endl;
+    this->_fixed_val = roundf(f * (1 << 8));
 }
 
 Fixed::~Fixed(void)

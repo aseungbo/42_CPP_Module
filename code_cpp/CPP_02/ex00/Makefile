@@ -1,4 +1,4 @@
-TARGET			= fix
+TARGET			= Fix
 
 SRCS			= main.cpp \
 					Fixed.cpp \
