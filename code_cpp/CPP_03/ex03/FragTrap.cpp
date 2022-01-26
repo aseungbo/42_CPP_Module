@@ -24,7 +24,7 @@ FragTrap::FragTrap(const FragTrap& ft) : ClapTrap(ft)
 
 FragTrap::~FragTrap(void)
 {
-    ;
+    std::cout << "FragTrap desctructor <" << _Name << "> called" << std::endl;
 }
 
 void    FragTrap::highFivesGuys(void)

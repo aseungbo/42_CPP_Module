@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(const ScavTrap& st) : ClapTrap(st)
 
 ScavTrap::~ScavTrap(void)
 {
-    ;
+    std::cout << "ScavTrap desctructor <" << _Name << "> called" << std::endl;
 }
 
 void ScavTrap::guardGate()
