@@ -2,20 +2,25 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
 {
+    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
     _Hp = 100;
     _Ep = 50;
     _Ad = 20;
     _guard_mode = 0;
-    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
+    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
     _Hp = 100;
     _Ep = 50;
     _Ad = 20;
     _guard_mode = 0;
-    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& st)
+{
+    *this = st;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -56,4 +61,23 @@ void ScavTrap::takeDamage(unsigned int amount)
         std::cout << "ScavTrap " << _Name << " take " << amount << " damage. "
         << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
     }
+}
+
+void ScavTrap::beRepaired(unsigned int amount)
+{
+    _Hp += amount;;
+    std::cout << "ScavTrap " << _Name << " repaired " << amount << " Hp. "
+    << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
+}
+
+ScavTrap& ScavTrap::operator = (const ScavTrap& st)
+{
+    if (this == &st)
+	    return (*this);
+    _Name = st._Name;
+    _Hp = st._Hp;
+    _Ep = st._Ep;
+    _Ad = st._Ad;
+    _guard_mode = st._guard_mode;
+    return (*this);
 }

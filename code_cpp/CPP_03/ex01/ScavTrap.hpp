@@ -8,11 +8,13 @@ class ScavTrap : public ClapTrap
     public:
         ScavTrap(std::string name);
         ScavTrap(void);
+        ScavTrap(const ScavTrap& st);
+        ScavTrap& operator = (const ScavTrap& st);
         ~ScavTrap();
         void guardGate();
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
-        using ClapTrap::beRepaired;
+        void beRepaired(unsigned int amount);
 
     private:
         int _guard_mode;

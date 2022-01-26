@@ -41,6 +41,8 @@ const float Fixed::min(const Fixed &a, const Fixed &b)
 
 Fixed& Fixed::operator = (const Fixed& fix)
 {
+    if (this == &fix)
+	    return (*this);
     this->_fixed_val = fix.getRawBits();
     return (*this);
 }

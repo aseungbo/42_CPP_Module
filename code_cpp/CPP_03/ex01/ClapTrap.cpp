@@ -10,6 +10,11 @@ ClapTrap::ClapTrap(void) : _Name("Default"), _Hp(10), _Ep(10), _Ad(0)
     std::cout << "ClapTrap constructor <" << _Name << "> called" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& ct)
+{
+    *this = ct;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap desctructor <" << _Name << "> called" << std::endl;
@@ -35,11 +40,13 @@ void ClapTrap::beRepaired(unsigned int amount)
     << "Now, ClapTrap " << _Name << " Hp: " << _Hp << std::endl;
 }
 
-ClapTrap& ClapTrap::operator = (const ClapTrap& cp)
+ClapTrap& ClapTrap::operator = (const ClapTrap& ct)
 {
-    _Name = cp._Name;
-    _Hp = cp._Hp;
-    _Ep = cp._Ep;
-    _Ad = cp._Ad;
+    if (this == &ct)
+	    return (*this);
+    _Name = ct._Name;
+    _Hp = ct._Hp;
+    _Ep = ct._Ep;
+    _Ad = ct._Ad;
     return (*this);
 }
