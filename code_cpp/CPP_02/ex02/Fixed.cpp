@@ -27,16 +27,20 @@ Fixed::~Fixed(void)
     ;
 }
 
-const float Fixed::max(const Fixed &a, const Fixed &b)
+const Fixed& Fixed::max(const Fixed &a, const Fixed &b)
 {
-    float res;
-    return (res = a.toFloat() > b.toFloat() ? a.toFloat() : b.toFloat());
+    if (a.toFloat() > b.toFloat())
+        return (a);
+    else
+        return (b);
 }
 
-const float Fixed::min(const Fixed &a, const Fixed &b)
+const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
 {
-    float res;
-    return (res = a.toFloat() < b.toFloat() ? a.toFloat() : b.toFloat());
+    if (a.toFloat() < b.toFloat())
+        return (a);
+    else
+        return (b);
 }
 
 Fixed& Fixed::operator = (const Fixed& fix)

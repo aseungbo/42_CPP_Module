@@ -2,12 +2,6 @@
 
 const int Fixed::_bits = 8;
 
-Fixed::Fixed( const Fixed& fix )
-{
-    *this = fix;
-    std::cout << "Copy constructor called" << std::endl;
-}
-
 Fixed::Fixed(void)
 {
     this->setRawBits(0);
@@ -17,6 +11,12 @@ Fixed::Fixed(void)
 Fixed::~Fixed(void)
 {
     std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed( const Fixed& fix )
+{
+    std::cout << "Copy constructor called" << std::endl;
+    *this = fix;
 }
 
 Fixed& Fixed::operator = (const Fixed& fix)

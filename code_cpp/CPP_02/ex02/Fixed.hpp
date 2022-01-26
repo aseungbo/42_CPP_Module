@@ -7,19 +7,20 @@
 class Fixed
 {
     public:
-        Fixed( const Fixed& fix );
         Fixed( void );
+        ~Fixed( void );
         Fixed( int i );
         Fixed( float f );
-        ~Fixed( void );
+        Fixed( const Fixed& fix );
+        Fixed& operator = (const Fixed& fix);
+
         int getRawBits( void ) const;
         void setRawBits( int const raw );
         float toFloat( void ) const;
         int toInt( void ) const;
 
-        const static float max(const Fixed &a, const Fixed &b);
-        const static float min(const Fixed &a, const Fixed &b);
-        Fixed& operator = (const Fixed& fix);
+        const static Fixed& max(const Fixed &a, const Fixed &b);
+        const static Fixed& min(const Fixed &a, const Fixed &b);
         Fixed& operator ++ (void);
         Fixed operator ++ (int);
         Fixed& operator -- (void);

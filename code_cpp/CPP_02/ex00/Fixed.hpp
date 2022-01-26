@@ -6,12 +6,13 @@
 class Fixed
 {
     public:
-        Fixed( const Fixed& fix );
         Fixed( void );
         ~Fixed( void );
+        Fixed( const Fixed& fix );
+        Fixed& operator = (const Fixed& fix);
+        
         int getRawBits( void ) const;
         void setRawBits( int const raw );
-        Fixed& operator = (const Fixed& fix);
 
     private:
         static const int _bits;

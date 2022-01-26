@@ -6,8 +6,8 @@ Cat::~Cat() { std::cout << getType() << " destructor called." << std::endl; }
 
 Cat::Cat(const Cat &cat)
 {
-    std::cout << " copy constructor called." << std::endl;
     *this = cat; 
+    std::cout << " copy constructor called." << std::endl;
 }
 
 Cat& Cat::operator = (const Cat &cat)
