@@ -4,26 +4,26 @@ const int Fixed::_bits = 8;
 
 Fixed::Fixed( const Fixed& fix )
 {
-    std::cout << "Copy constructor called" << std::endl;
     *this = fix;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(void)
 {
-    std::cout << "Default constructor called" << std::endl;
     this->setRawBits(0);
+    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( int i )
 {
-    std::cout << "Int constructor called" << std::endl;
     this->_fixed_val = i << 8;
+    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( float f )
 {
-    std::cout << "Float constructor called" << std::endl;
     this->_fixed_val = roundf(f * (1 << 8));
+    std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::~Fixed(void)

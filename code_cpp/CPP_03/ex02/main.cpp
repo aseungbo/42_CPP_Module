@@ -3,13 +3,16 @@
 int main()
 {
     FragTrap a("a");
-    FragTrap b;
-    
+    FragTrap b("b");
     std::cout << std::endl;
 
+    a.attack("b");
+    b.takeDamage(20);
+    b.beRepaired(20);
+    std::cout << std::endl;
+    
     a.highFivesGuys();
     b.highFivesGuys();
-    
     std::cout << std::endl;
     return 0;
 }

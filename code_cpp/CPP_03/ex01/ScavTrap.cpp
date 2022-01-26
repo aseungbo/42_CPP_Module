@@ -2,25 +2,26 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
 {
-    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
     _Hp = 100;
     _Ep = 50;
     _Ad = 20;
     _guard_mode = 0;
+    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
     _Hp = 100;
     _Ep = 50;
     _Ad = 20;
     _guard_mode = 0;
+    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& st)
+ScavTrap::ScavTrap(const ScavTrap& st) : ClapTrap(st)
 {
     *this = st;
+    std::cout << "ScavTrap Copy constructor <" << _Name << "> called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -74,10 +75,7 @@ ScavTrap& ScavTrap::operator = (const ScavTrap& st)
 {
     if (this == &st)
 	    return (*this);
-    _Name = st._Name;
-    _Hp = st._Hp;
-    _Ep = st._Ep;
-    _Ad = st._Ad;
+    ClapTrap::operator=(st);
     _guard_mode = st._guard_mode;
     return (*this);
 }

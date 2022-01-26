@@ -4,8 +4,8 @@ const int Fixed::_bits = 8;
 
 Fixed::Fixed( const Fixed& fix )
 {
-    std::cout << "Copy constructor called" << std::endl;
     *this = fix;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(void)
