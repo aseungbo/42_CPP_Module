@@ -2,31 +2,25 @@
 
 int main()
 {
-    // DiamondTrap a("a");
-    // std::cout << std::endl;
-    // std::cout << std::endl;
-    // a.whoAmI();
-    // std::cout << std::endl;
-    
-    // DiamondTrap b("b");
-    // std::cout << std::endl;
-    // std::cout << std::endl;
-    // b.whoAmI();
-    // std::cout << std::endl;
-    
-    // a.ScavTrap::attack("b");
-    // b.ScavTrap::takeDamage(30);
-    // a.ScavTrap::attack("b");
-    // b.ScavTrap::takeDamage(30);
-    // b.ScavTrap::guardGate();
-    // a.ScavTrap::attack("b");
-    // b.ScavTrap::takeDamage(30);
-    // std::cout << std::endl;
-    // b.ScavTrap::guardGate();
-    // b.ScavTrap::guardGate();
-    // std::cout << std::endl;
-
-    DiamondTrap c;
+    DiamondTrap a("a");
     std::cout << std::endl;
+    std::cout << "[ Check DiamondTrap Name, ClapTrap::Name ]" << std::endl;
+    a.whoAmI();
+    std::cout << std::endl;
+
+    std::cout << "[ Check DiamondTrap Hp ]" << std::endl;
+    a.beRepaired(0);
+    std::cout << std::endl;
+
+    std::cout << "[ Check DiamondTrap Ep ]" << std::endl;
+    a.guardGate();
+    a.guardGate();
+    a.guardGate();
+    std::cout << std::endl;
+
+    std::cout << "[ Check DiamondTrap Ad and attack func ]" << std::endl;
+    a.attack("someone");
+    std::cout << std::endl;
+
     return (0);
 }

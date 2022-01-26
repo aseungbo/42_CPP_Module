@@ -19,6 +19,12 @@ DiamondTrap::DiamondTrap(void) : ClapTrap()
     std::cout << "DiamondTrap constructor <" << _Name << "> called" << std::endl;
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap& dt) : ClapTrap(dt)
+{
+    *this = dt;
+    std::cout << "DiamondTrap Copy constructor <" << _Name << "> called" << std::endl;
+}
+
 DiamondTrap::~DiamondTrap(void)
 {
     std::cout << "DiamondTrap desctructor <" << _Name << "> called" << std::endl;
@@ -34,4 +40,13 @@ void DiamondTrap::whoAmI(void)
 void DiamondTrap::attack(std::string const & target)
 {
     ScavTrap::attack(target);
+}
+
+DiamondTrap& DiamondTrap::operator = (const DiamondTrap& dt)
+{
+    if (this == &dt)
+	    return (*this);
+    ClapTrap::operator=(dt);
+    _Name = dt._Name;
+    return (*this);
 }

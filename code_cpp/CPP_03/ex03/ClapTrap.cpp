@@ -10,6 +10,12 @@ ClapTrap::ClapTrap(void) : _Name("Default"), _Hp(C_HP), _Ep(C_EP), _Ad(C_AD)
     std::cout << "ClapTrap constructor <" << _Name << "> called" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& ct)
+{
+    *this = ct;
+    std::cout << "ClapTrap Copy constructor <" << _Name << "> called" << std::endl;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap desctructor <" << _Name << "> called" << std::endl;

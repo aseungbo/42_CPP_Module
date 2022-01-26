@@ -10,8 +10,8 @@ class FragTrap : public ClapTrap
         FragTrap(void);
         FragTrap(const FragTrap& ft);
         ~FragTrap(void);
-        void highFivesGuys(void);
         FragTrap& operator = (const FragTrap& ft);
+        void highFivesGuys(void);
 };
 
 #endif
