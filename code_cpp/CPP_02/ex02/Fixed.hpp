@@ -16,23 +16,24 @@ class Fixed
         void setRawBits( int const raw );
         float toFloat( void ) const;
         int toInt( void ) const;
-        static float max(const Fixed &a, const Fixed &b);
-        static float min(const Fixed &a, const Fixed &b);
+
+        const static float max(const Fixed &a, const Fixed &b);
+        const static float min(const Fixed &a, const Fixed &b);
         Fixed& operator = (const Fixed& fix);
+        Fixed& operator ++ (void);
+        Fixed operator ++ (int);
+        Fixed& operator -- (void);
+        Fixed operator -- (int);
+        Fixed operator + (const Fixed& fix);
+        Fixed operator - (const Fixed& fix);
+        Fixed operator * (const Fixed& fix);
+        Fixed operator / (const Fixed& fix);
         bool operator > (const Fixed& fix);
         bool operator < (const Fixed& fix);
         bool operator >= (const Fixed& fix);
         bool operator <= (const Fixed& fix);
         bool operator == (const Fixed& fix);
         bool operator != (const Fixed& fix);
-        // -- 구현해야함.
-        Fixed& operator ++ (void);
-        Fixed operator ++ (int);
-        float operator + (const Fixed& fix);
-        float operator - (const Fixed& fix);
-        float operator * (const Fixed& fix);
-        float operator / (const Fixed& fix);
-
 
     private:
         static const int _bits;

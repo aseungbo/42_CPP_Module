@@ -27,6 +27,24 @@ Fixed::~Fixed(void)
     ;
 }
 
+const float Fixed::max(const Fixed &a, const Fixed &b)
+{
+    float res;
+    return (res = a.toFloat() > b.toFloat() ? a.toFloat() : b.toFloat());
+}
+
+const float Fixed::min(const Fixed &a, const Fixed &b)
+{
+    float res;
+    return (res = a.toFloat() < b.toFloat() ? a.toFloat() : b.toFloat());
+}
+
+Fixed& Fixed::operator = (const Fixed& fix)
+{
+    this->_fixed_val = fix.getRawBits();
+    return (*this);
+}
+
 Fixed& Fixed::operator ++ (void)
 {
     this->_fixed_val++;
@@ -41,30 +59,37 @@ Fixed Fixed::operator ++ (int)
     return(fix);
 }
 
-Fixed& Fixed::operator = (const Fixed& fix)
+Fixed& Fixed::operator -- (void)
 {
-    this->_fixed_val = fix.getRawBits();
+    this->_fixed_val--;
     return (*this);
 }
 
-float Fixed::operator + (const Fixed& fix)
-{   
-    return (this->toFloat() + fix.toFloat());
+Fixed Fixed::operator -- (int)
+{
+    Fixed fix = *this;
+    this->_fixed_val--;
+    return(fix);
 }
 
-float Fixed::operator - (const Fixed& fix)
-{   
-    return (this->toFloat() - fix.toFloat());
+Fixed Fixed::operator + (const Fixed& fix)
+{  
+    return (Fixed(this->toFloat() + fix.toFloat()));
 }
 
-float Fixed::operator * (const Fixed& fix)
+Fixed Fixed::operator - (const Fixed& fix)
 {   
-    return (this->toFloat() * fix.toFloat());
+    return (Fixed(this->toFloat() - fix.toFloat()));
 }
 
-float Fixed::operator / (const Fixed& fix)
+Fixed Fixed::operator * (const Fixed& fix)
 {   
-    return (this->toFloat() / fix.toFloat());
+    return (Fixed(this->toFloat() * fix.toFloat()));
+}
+
+Fixed Fixed::operator / (const Fixed& fix)
+{   
+    return (Fixed(this->toFloat() / fix.toFloat()));
 }
 
 bool Fixed::operator > (const Fixed& fix)
@@ -114,19 +139,6 @@ bool Fixed::operator == (const Fixed& fix)
     else 
         return (false);
 }
-
-float Fixed::max(const Fixed &a, const Fixed &b)
-{
-    float res;
-    return (res = a.toFloat() > b.toFloat() ? a.toFloat() : b.toFloat());
-}
-
-float Fixed::min(const Fixed &a, const Fixed &b)
-{
-    float res;
-    return (res = a.toFloat() < b.toFloat() ? a.toFloat() : b.toFloat());
-}
-
 
 int Fixed::getRawBits( void ) const
 {
