@@ -2,12 +2,6 @@
 
 const int Fixed::_bits = 8;
 
-Fixed::Fixed( const Fixed& fix )
-{
-    *this = fix;
-    std::cout << "Copy constructor called" << std::endl;
-}
-
 Fixed::Fixed(void)
 {
     this->setRawBits(0);
@@ -24,6 +18,12 @@ Fixed::Fixed( float f )
 {
     this->_fixed_val = roundf(f * (1 << 8));
     std::cout << "Float constructor called" << std::endl;
+}
+
+Fixed::Fixed( const Fixed& fix )
+{
+    *this = fix;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed(void)
