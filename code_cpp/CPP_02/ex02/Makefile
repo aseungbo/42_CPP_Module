@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/08 12:46:58 by seuan             #+#    #+#              #
+#    Updated: 2022/02/08 16:01:33 by seuan            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 TARGET			= Fix
 
 SRCS			= main.cpp \
@@ -5,14 +17,14 @@ SRCS			= main.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 
-CLA				= clang++
+CXX				= clang++
 RM				= rm -f
-CLAFLAGS		= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 all:			$(TARGET)
 
 $(TARGET):		$(OBJS)
-				$(CLA) $(CLAFLAGS) $(OBJS) -o $(TARGET) 
+				$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)  
 
 clean:
 				$(RM) $(OBJS)

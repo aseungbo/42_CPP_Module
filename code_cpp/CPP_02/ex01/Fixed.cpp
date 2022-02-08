@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seuan <seuan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 12:46:33 by seuan             #+#    #+#             */
+/*   Updated: 2022/02/08 12:46:33 by seuan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 const int Fixed::_bits = 8;
@@ -22,8 +34,8 @@ Fixed::Fixed( float f )
 
 Fixed::Fixed( const Fixed& fix )
 {
-    *this = fix;
     std::cout << "Copy constructor called" << std::endl;
+    *this = fix;
 }
 
 Fixed::~Fixed(void)
