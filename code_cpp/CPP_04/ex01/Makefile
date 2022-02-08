@@ -1,4 +1,4 @@
-TARGET			= Animal
+TARGET			= a.out
 
 SRCS			= main.cpp \
 					Animal.cpp \
