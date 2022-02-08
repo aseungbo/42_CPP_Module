@@ -1,8 +1,10 @@
-TARGET			= Animal
+TARGET			= a.out
 
 SRCS			= main.cpp \
 					Animal.cpp \
+					WrongAnimal.cpp \
 					Cat.cpp \
+					WrongCat.cpp \
 					Dog.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)

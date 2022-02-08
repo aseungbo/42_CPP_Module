@@ -1,26 +1,29 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal() { _type = "Dog", std::cout << getType() << " constructor called." << std::endl; }
+Dog::Dog() : Animal("Dog")
+{
+    std::cout << getType() << " constructor called." << std::endl;
+}
 
-Dog::~Dog() { std::cout << getType() << " destructor called." << std::endl; }
+Dog::~Dog()
+{
+    std::cout << getType() << " destructor called." << std::endl;
+}
 
 Dog::Dog(const Dog &dog)
 { 
-    std::cout << " copy constructor called." << std::endl;
     *this = dog;
 }
 
 Dog& Dog::operator = (const Dog &dog)
 {
+     if (this == &dog)
+        return (*this);
+    _type = dog._type;
     return (*this);
-}
-
-const std::string& Dog::getType() const
-{
-    return (Animal::getType());
 }
 
 void Dog::makeSound() const
 {
-    Animal::makeSound();
+    std::cout << "Dog ! Dog ! Dog !" << std::endl;
 }
