@@ -2,12 +2,12 @@
 
 Dog::Dog() : Animal("Dog")
 {
-    std::cout << getType() << " constructor called." << std::endl;
+    std::cout << "Dog constructor called." << std::endl;
 }
 
 Dog::~Dog()
 {
-    std::cout << getType() << " destructor called." << std::endl;
+    std::cout << "Dog destructor called." << std::endl;
 }
 
 Dog::Dog(const Dog &dog)

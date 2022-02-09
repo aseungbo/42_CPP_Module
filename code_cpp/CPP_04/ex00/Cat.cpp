@@ -2,12 +2,12 @@
 
 Cat::Cat() : Animal("Cat")
 {
-    std::cout << getType() << " constructor called." << std::endl;
+    std::cout << "Cat constructor called." << std::endl;
 }
 
 Cat::~Cat()
 {
-    std::cout << getType() << " destructor called." << std::endl;
+    std::cout << "Cat destructor called." << std::endl;
 }
 
 Cat::Cat(const Cat &cat)

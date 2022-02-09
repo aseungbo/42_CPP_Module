@@ -11,6 +11,9 @@ class Cat : public Animal
         ~Cat();
         Cat (const Cat &cat);
         Cat &operator= (const Cat &cat);
+
+        Brain *getBrain() const;
+        void makeSound() const;
     
     private:
         Brain *_brain;

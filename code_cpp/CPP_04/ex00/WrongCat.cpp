@@ -2,12 +2,12 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-    std::cout << getType() << " constructor called." << std::endl;
+    std::cout << "WrongCat constructor called." << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-    std::cout << getType() << " destructor called." << std::endl;
+    std::cout << "WrongCat destructor called." << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &wcat)
