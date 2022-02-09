@@ -4,14 +4,12 @@
 
 int main()
 {
-    // not working if Aniaml is abstract base class 
-    // Animal ani;
+    // 독립적인 객체 생성 불가능
+    // Animal *ani = new Animal();
 
-    // working if Aniaml is abstract base class 
-    // Animal *ani;
-
-    const Animal *j = new Dog();
-    const Animal *i = new Cat();
+    // Upcasting
+    Animal *j = new Dog();
+    Animal *i = new Cat();
     j->makeSound();
     i->makeSound();
 
