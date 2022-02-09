@@ -1,4 +1,4 @@
-TARGET			= FragTrap
+TARGET			= a.out
 
 SRCS			= main.cpp \
 					ClapTrap.cpp \

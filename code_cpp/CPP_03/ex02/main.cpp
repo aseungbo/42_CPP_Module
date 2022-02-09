@@ -4,6 +4,8 @@ int main()
 {
     FragTrap a("a");
     FragTrap b("b");
+    FragTrap c;
+    FragTrap d(c);
     std::cout << std::endl;
 
     a.attack("b");

@@ -1,4 +1,4 @@
-TARGET			= ScavTrap
+TARGET			= a.out
 
 SRCS			= main.cpp \
 					ClapTrap.cpp \

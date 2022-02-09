@@ -1,4 +1,4 @@
-TARGET			= ClapTrap
+TARGET			= a.out
 
 SRCS			= main.cpp \
 					ClapTrap.cpp \

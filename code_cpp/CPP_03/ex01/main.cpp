@@ -4,11 +4,11 @@ int main()
 {
     ScavTrap a("a");
     ScavTrap b("b");
+    ScavTrap c;
+    ScavTrap d(c);
 
     std::cout << std::endl;
     
-    a.attack("b");
-    b.takeDamage(20);
     a.attack("b");
     b.takeDamage(20);
     a.attack("b");

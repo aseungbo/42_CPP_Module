@@ -9,7 +9,7 @@ int main()
     std::cout << std::endl;
 
     std::cout << "[ Check DiamondTrap Hp ]" << std::endl;
-    a.beRepaired(0);
+    a.beRepaired(10);
     std::cout << std::endl;
 
     std::cout << "[ Check DiamondTrap Ep ]" << std::endl;

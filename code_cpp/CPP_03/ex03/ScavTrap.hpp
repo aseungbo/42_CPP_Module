@@ -2,6 +2,7 @@
 # define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
+
 # define S_HP 100
 # define S_EP 50
 # define S_AD 20
@@ -14,13 +15,13 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap(const ScavTrap& st);
         ~ScavTrap();
         ScavTrap& operator = (const ScavTrap& st);
-        void guardGate();
-        void attack(std::string const & target);
+
         void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        void attack(std::string const& target);
+        void guardGate();
 
     private:
-        int _guard_mode;
+        unsigned int _guard_mode;
 };
 
 #endif

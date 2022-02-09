@@ -6,7 +6,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name +  "_clap_name")
     _Hp = F_HP;
     _Ep = S_EP;
     _Ad = F_AD;
-    std::cout << "DiamondTrap constructor <" << _Name << "> called" << std::endl;
+    std::cout << "DiamondTrap " << _Name << " constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(void) : ClapTrap()
@@ -16,30 +16,18 @@ DiamondTrap::DiamondTrap(void) : ClapTrap()
     _Hp = F_HP;
     _Ep = S_EP;
     _Ad = F_AD;
-    std::cout << "DiamondTrap constructor <" << _Name << "> called" << std::endl;
+    std::cout << "DiamondTrap " << _Name << " constructor called" << std::endl;
+}
+
+DiamondTrap::~DiamondTrap(void)
+{
+    std::cout << "DiamondTrap " << _Name << " desctructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& dt) : ClapTrap(dt)
 {
     *this = dt;
-    std::cout << "DiamondTrap Copy constructor <" << _Name << "> called" << std::endl;
-}
-
-DiamondTrap::~DiamondTrap(void)
-{
-    std::cout << "DiamondTrap desctructor <" << _Name << "> called" << std::endl;
-}
-
-void DiamondTrap::whoAmI(void)
-{
-    std::cout << "whoAmI" << std::endl;
-    std::cout << "name is: " << _Name << std::endl;
-    std::cout << "ClapTrap name is: " << ClapTrap::_Name << std::endl;
-}
-
-void DiamondTrap::attack(std::string const & target)
-{
-    ScavTrap::attack(target);
+    std::cout << "DiamondTrap " << _Name << " Copy constructor called" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator = (const DiamondTrap& dt)
@@ -49,4 +37,10 @@ DiamondTrap& DiamondTrap::operator = (const DiamondTrap& dt)
     ClapTrap::operator=(dt);
     _Name = dt._Name;
     return (*this);
+}
+
+void DiamondTrap::whoAmI(void)
+{
+    std::cout << "name is: " << _Name << std::endl;
+    std::cout << "ClapTrap name is: " << ClapTrap::_Name << std::endl;
 }

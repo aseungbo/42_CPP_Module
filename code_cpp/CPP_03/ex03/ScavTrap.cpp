@@ -6,7 +6,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     _Ep = S_EP;
     _Ad = S_AD;
     _guard_mode = 0;
-    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
+    std::cout << "ScavTrap " << _Name << " constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(void) : ClapTrap()
@@ -15,18 +15,27 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     _Ep = S_EP;
     _Ad = S_AD;
     _guard_mode = 0;
-    std::cout << "ScavTrap constructor <" << _Name << "> called" << std::endl;
+    std::cout << "ScavTrap " << _Name << " constructor called" << std::endl;
+}
+
+ScavTrap::~ScavTrap(void)
+{
+    std::cout << "ScavTrap " << _Name << " destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& st) : ClapTrap(st)
 {
     *this = st;
-    std::cout << "ScavTrap Copy constructor <" << _Name << "> called" << std::endl;
+    std::cout << "ScavTrap " << _Name << " Copy constructor called" << std::endl;
 }
 
-ScavTrap::~ScavTrap(void)
+ScavTrap& ScavTrap::operator = (const ScavTrap& st)
 {
-    std::cout << "ScavTrap desctructor <" << _Name << "> called" << std::endl;
+    if (this == &st)
+	    return (*this);
+    ClapTrap::operator=(st);
+    _guard_mode = st._guard_mode;
+    return (*this);
 }
 
 void ScavTrap::guardGate()
@@ -39,14 +48,6 @@ void ScavTrap::guardGate()
     }
     else
         std::cout << "ScavTrap " << _Name << " have not enough Energy." << std::endl;
-}
-
-void ScavTrap::attack(std::string const & target)
-{
-    if (_guard_mode == 1)
-        _guard_mode = 0;
-    std::cout << "ScavTrap " << _Name << " attacks " << target <<
-    " causing " << _Ad << " points of damage!" << std::endl;
 }
 
 void ScavTrap::takeDamage(unsigned int amount)
@@ -64,18 +65,8 @@ void ScavTrap::takeDamage(unsigned int amount)
     }
 }
 
-void ScavTrap::beRepaired(unsigned int amount)
+void ScavTrap::attack(std::string const & target)
 {
-    _Hp += amount;;
-    std::cout << "ScavTrap " << _Name << " repaired " << amount << " Hp. "
-    << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
-}
-
-ScavTrap& ScavTrap::operator = (const ScavTrap& st)
-{
-    if (this == &st)
-	    return (*this);
-    ClapTrap::operator=(st);
-    _guard_mode = st._guard_mode;
-    return (*this);
+    std::cout << "ScavTrap " << _Name << " attack " << target <<
+    " causing " << _Ad << " points of damage!" << std::endl;
 }
