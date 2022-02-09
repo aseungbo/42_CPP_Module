@@ -28,7 +28,7 @@ WrongAnimal& WrongAnimal::operator = (const WrongAnimal &ani)
     return (*this);
 }
 
-const std::string& WrongAnimal::getType() const
+std::string WrongAnimal::getType() const
 {
     return _type;
 }

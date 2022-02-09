@@ -24,8 +24,9 @@ int main()
 	delete(j);
 	j = NULL;
 
-	std::cout << "-----------------------------------------------" << std::endl;
 	// Wrong example.
+	std::cout << std::endl;
+	std::cout << "------------ Wrong Example ------------" << std::endl;
 	const WrongAnimal *meta2 = new WrongAnimal();
 	const WrongAnimal *i2 = new WrongCat();
 	std::cout << i2->getType() << " " << std::endl;
