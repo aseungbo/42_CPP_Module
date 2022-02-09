@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap(void) : ClapTrap()
 
 DiamondTrap::~DiamondTrap(void)
 {
-    std::cout << "DiamondTrap " << _Name << " desctructor called" << std::endl;
+    std::cout << "DiamondTrap " << _Name << " destructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& dt) : ClapTrap(dt)
@@ -41,6 +41,6 @@ DiamondTrap& DiamondTrap::operator = (const DiamondTrap& dt)
 
 void DiamondTrap::whoAmI(void)
 {
-    std::cout << "name is: " << _Name << std::endl;
+    std::cout << "DiamondTrap name is: " << _Name << std::endl;
     std::cout << "ClapTrap name is: " << ClapTrap::_Name << std::endl;
 }

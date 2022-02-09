@@ -64,3 +64,9 @@ void ScavTrap::takeDamage(unsigned int amount)
         << "Now, ScavTrap " << _Name << " Hp: " << _Hp << std::endl;
     }
 }
+
+void ScavTrap::attack(std::string const & target)
+{
+    std::cout << "ScavTrap " << _Name << " attack " << target <<
+    " causing " << _Ad << " points of damage!" << std::endl;
+}

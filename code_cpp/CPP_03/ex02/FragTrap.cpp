@@ -18,7 +18,7 @@ FragTrap::FragTrap(void) : ClapTrap()
 
 FragTrap::~FragTrap(void)
 {
-    std::cout << "FragTrap " << _Name << " descructor called" << std::endl;
+    std::cout << "FragTrap " << _Name << " destructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& ft) : ClapTrap(ft)

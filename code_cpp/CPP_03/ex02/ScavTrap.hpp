@@ -13,6 +13,7 @@ class ScavTrap : public ClapTrap
         ScavTrap& operator = (const ScavTrap& st);
 
         void takeDamage(unsigned int amount);
+        void attack(std::string const& target);
         void guardGate();
 
     private:
