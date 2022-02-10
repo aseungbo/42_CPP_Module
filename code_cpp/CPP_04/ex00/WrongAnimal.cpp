@@ -17,7 +17,8 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal::WrongAnimal(const WrongAnimal &ani)
 { 
-    *this = ani; 
+    *this = ani;
+    std::cout << "WrongAnimal Copy constructor called." << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator = (const WrongAnimal &ani)

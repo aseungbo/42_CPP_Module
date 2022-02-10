@@ -13,6 +13,7 @@ WrongCat::~WrongCat()
 WrongCat::WrongCat(const WrongCat &wcat)
 {
     *this = wcat;
+    std::cout << "WrongCat Copy constructor called." << std::endl;
 }
 
 WrongCat& WrongCat::operator = (const WrongCat &wcat)

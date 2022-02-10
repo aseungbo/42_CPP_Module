@@ -4,15 +4,16 @@
 
 int main()
 {
-    // 독립적인 객체 생성 불가능
+    // 추상 클래스의 독립적인 객체 생성 시 에러 발생
     // Animal *ani = new Animal();
 
-    // Upcasting
     Animal *j = new Dog();
     Animal *i = new Cat();
+    std::cout << std::endl;
     j->makeSound();
     i->makeSound();
 
+    std::cout << std::endl;
     delete i;
     delete j;
     i = NULL;

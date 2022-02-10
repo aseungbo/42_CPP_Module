@@ -36,7 +36,7 @@ int main()
 	delete(meta2);
 	meta2 = NULL;
 	delete(i2);
-	i = NULL;
+	i2 = NULL;
 
 	system("leaks a.out");
 	return (0);

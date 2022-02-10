@@ -13,6 +13,7 @@ Dog::~Dog()
 Dog::Dog(const Dog &dog)
 { 
     *this = dog;
+    std::cout << "Dog Copy constructor called." << std::endl;
 }
 
 Dog& Dog::operator = (const Dog &dog)

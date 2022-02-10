@@ -1,7 +1,8 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-#include "Animal.hpp"
+# include <iostream>
+# include <string>
 
 class Brain
 {
