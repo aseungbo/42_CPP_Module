@@ -10,16 +10,21 @@ class Form
 	public:
 		Form();
 		Form(std::string name, int gradeSign, int gradeExecute);
-		~Form();
+		virtual ~Form();
 		Form(const Form& form);
-
 		Form &operator = (const Form& form);
+
 		std::string getName() const;
 		int getGradeSign() const;
 		int getGradeExecute() const;
 		bool getIsSigned() const;
-		int isValidGrades(int gradeSign, int gradeExecute);
-		void beSigned(Bureaucrat& bur);
+		void setName(std::string name);
+		void setGradeSign(int gradeSign);
+		void setGradeExecute(int gradeExecute);
+		void setIsSigned(bool isSigned);
+		void isValidGrades(int gradeSign, int gradeExecute);
+		virtual void beSigned(Bureaucrat& bur);
+		virtual void execute(Bureaucrat const & executor) const=0;
 
 		class GradeTooHighException : public std::exception
 		{
@@ -31,6 +36,16 @@ class Form
 			public:
 				const char* what(void) const throw();
 		};
+		class ExecuteException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
+		class SignException : public std::exception
+		{
+			public:
+				const char* what(void) const throw();
+		};
 
 	private:
 		std::string _name;
@@ -38,5 +53,7 @@ class Form
 		int _gradeExecute;
 		bool _isSigned;
 };
+
+std::ostream& operator << ( std::ostream &out, const Form &form );
 
 #endif

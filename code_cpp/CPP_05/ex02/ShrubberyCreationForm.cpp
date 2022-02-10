@@ -1,19 +1,18 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-	: Form("Shrubbery", S_SIGN, S_EXEC)
+	: Form("Shrubbery", S_SIGN, S_EXEC), _target("Default")
 	{}
 
-ShrubberyCreationForm::ShrubberyCreationForm(Bureaucrat const & executor)
-	: Form("Shrubbery", S_SIGN, S_EXEC)
-{
-	(void)executor;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+	: Form("Shrubbery", S_SIGN, S_EXEC), _target(target)
+	{}
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 	{}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& sform)
+	: Form("Shrubbery", S_SIGN, S_EXEC)
 {
 	*this = sform;
 }
@@ -22,17 +21,14 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreatio
 {
 	if (this == &sform)
 		return (*this);
-	setName(sform.getName());
-	setGradeSign(sform.getGradeSign());
-	setGradeExecute(sform.getGradeExecute());
-	setIsSigned(sform.getIsSigned());
+	_target = sform._target;
 	return (*this);
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::ifstream fin("ASCII_Tree");
-	std::ofstream	fout(executor.getName() + "_shrubbery");
+	std::ofstream	fout(_target + "_shrubbery");
 	std::string     fc;
 
 	if (getIsSigned() == false)
@@ -41,8 +37,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		throw (Form::ExecuteException());
 	if (!fin.is_open())
 	{
-		std::cerr << "Can not find file!" << std::endl;
-		exit(100);
+		std::cerr << "Can not open file!" << std::endl;
+		exit(2);
 	}
 	fin.seekg(0, std::ios::end);
 	int size = fin.tellg();
