@@ -1,14 +1,18 @@
 #include "Base.hpp"
 
-Base* generate(void);
-// void identify(Base* base_ptr);
-// void identify(Base& base_ptr);
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
-int main()
+int main(void)
 {
-    Base *base_ptr = generate();
+	Base *basePtr = generate();
+	Base &baseRef(*basePtr);
 
-    delete base_ptr;
-    base_ptr = NULL;
+	identify(basePtr);
+	identify(baseRef);
+
+    delete basePtr;
     system("leaks a.out");
+	return (0);
 }

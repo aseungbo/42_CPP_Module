@@ -3,23 +3,27 @@
 #include "B.hpp"
 #include "C.hpp"
 
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
 Base* generate(void)
 {
-    Base *ptr;
+    Base *ptr(NULL);
 
     srand((unsigned int)time(NULL));
-	int num = rand();
-	if (num % 3 == 0)
+	int num = rand() % 3;
+	if (num == 0)
     {
         ptr = new A();
         std::cout << "A generated." << std::endl;
     }
-    else if (num % 3 == 1)
+    else if (num == 1)
 	{
         ptr = new B();
         std::cout << "B generated." << std::endl;
     }
-    else
+    else if (num == 2)
     {
         ptr = new C();
         std::cout << "C generated." << std::endl;
