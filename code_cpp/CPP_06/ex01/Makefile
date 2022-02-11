@@ -1,7 +1,7 @@
 TARGET			= a.out
 
 SRCS			= main.cpp \
-					uintptr.cpp \
+					Serialization.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 

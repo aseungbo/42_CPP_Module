@@ -1,21 +1,25 @@
-#include "uintptr.hpp"
+#include "Serialization.hpp"
 
 int main()
 {
-    Data *data = new Data();
-    data->_Val = 42;
+    Serialization s;
 
-    std::cout << "data: " << data << std::endl;
-    std::cout << "data_value: " << data->_Val << std::endl;
-    std::cout << std::endl;
+    Data *d = new Data;
+	d->_val = 42;
+	Data *dCopy = NULL;
+	uintptr_t uptr;
 
-    uintptr_t u_ptr = serialize(data);
-    std::cout << "u_ptr: " << u_ptr << std::endl;
-    std::cout << std::endl;
-    
-    Data *d_ptr = deserialize(u_ptr);
-    std::cout << "d_ptr: " << d_ptr << std::endl;
-    std::cout << "d_ptr_Val: " << d_ptr->_Val << std::endl;
-    std::cout << std::endl;
-    system("leaks a.out");
+	std::cout << " [ TEST Serialization ] " << std::endl;
+    uptr = s.serialize(d);
+	std::cout << "d value: " << d->_val << std::endl;
+	std::cout << "uptr address use serialize: " << uptr << std::endl;
+
+    std::cout << " [ TEST Deserialization ] " << std::endl;
+	dCopy = s.deserialize(uptr);
+	std::cout << "dCopy value: " << dCopy->_val << std::endl;
+	std::cout << "dCopy address: " << dCopy << std::endl;
+	delete dCopy; // 
+	d = NULL;
+	dCopy = NULL;
+	return (0);
 }
