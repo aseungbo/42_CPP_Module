@@ -2,11 +2,12 @@
 # define SERIALIZATION_HPP
 
 # include <iostream>
+# include <stdint.h>
 
-typedef struct Data
+struct Data
 {
 	int _val;
-} Data;
+};
 
 class Serialization
 {
@@ -15,6 +16,7 @@ class Serialization
 		~Serialization();
 		Serialization(Serialization& copy);
 		Serialization& operator = (const Serialization& serialization);
+
 		uintptr_t serialize(Data* ptr);
 		Data* deserialize(uintptr_t raw);
 };
