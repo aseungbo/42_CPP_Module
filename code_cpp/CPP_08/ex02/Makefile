@@ -1,6 +1,7 @@
 TARGET			= a.out
 
 SRCS			= main.cpp \
+					mutantstack.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 

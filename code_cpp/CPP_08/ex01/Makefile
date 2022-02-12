@@ -1,6 +1,7 @@
 TARGET			= a.out
 
 SRCS			= main.cpp \
+					span.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 
