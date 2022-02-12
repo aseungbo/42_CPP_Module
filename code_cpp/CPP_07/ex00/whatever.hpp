@@ -1,5 +1,5 @@
-#ifndef TEMPLATES_HPP
-# define TEMPLATES_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 template <class T> T max (T a, T b) { return (a > b ? a : b); }
 template <class T> T min (T a, T b) { return (a < b ? a : b); }

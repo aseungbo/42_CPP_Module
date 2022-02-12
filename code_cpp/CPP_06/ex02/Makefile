@@ -7,7 +7,7 @@ SRCS			= main.cpp \
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
-RM				= rm -f
+RM				= rm -rf
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 all:			$(TARGET)
