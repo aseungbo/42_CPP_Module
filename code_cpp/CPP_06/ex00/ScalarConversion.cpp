@@ -35,8 +35,8 @@ void ScalarConversion::toChar() const
         std::cout << "'" << static_cast<char>(_Var[0]) << "'" << std::endl;
     else
     {
-        int tmp = atoi(_Var.c_str());
-        if (!(MIN_CHAR <= tmp && tmp <= MAX_CHAR) || isnan(tmp))
+        double tmp = atof(_Var.c_str());
+        if (CHAR_MAX < tmp || CHAR_MIN > tmp || isnan(tmp))
             throw (ImpossibleException());
         else if (!(32 <= tmp && tmp <= 126))
             throw (NonDisplayException());
@@ -53,7 +53,7 @@ void ScalarConversion::toInt() const
     else
     {
         double tmp = atof(_Var.c_str());
-        if (!(MIN_INT <= tmp && tmp <= MAX_INT))
+        if (tmp > INT_MAX || tmp < INT_MIN || isnan(tmp))
             throw (ImpossibleException());
         else
             std::cout << static_cast<int>(tmp) << std::endl;
@@ -71,12 +71,15 @@ void ScalarConversion::toFloat() const
     }
     else
     {
-        char *end;
-        double tmp = std::strtod(_Var.c_str(), &end);
-        float f = static_cast<float>(tmp);
-        std::cout << std::fixed; 
-        std::cout.precision(1);
-        std::cout << f << "f" << std::endl;
+        double tmp = atof(_Var.c_str());
+        if ((tmp > __FLT_MAX__ || tmp < -__FLT_MAX__ ) && !isinf(tmp))
+		    throw (ImpossibleException());
+        else
+        {
+            std::cout << std::fixed; 
+            std::cout.precision(1);
+            std::cout << static_cast<float>(tmp) << "f" << std::endl;
+        }
     }
 }
 
@@ -91,11 +94,15 @@ void ScalarConversion::toDouble() const
     }
     else
     {
-        char *end;
-        double tmp = std::strtod(_Var.c_str(), &end);
-        std::cout << std::fixed; 
-        std::cout.precision(1);
-        std::cout << tmp << std::endl;
+        double tmp = atof(_Var.c_str());
+        if ((tmp > __DBL_MAX__ || tmp < -__DBL_MAX__) && !isinf(tmp))
+		    throw (ImpossibleException());
+        else
+        {
+            std::cout << std::fixed; 
+            std::cout.precision(1);
+            std::cout << static_cast<double>(tmp) << std::endl;
+        }
     }
 }
 
