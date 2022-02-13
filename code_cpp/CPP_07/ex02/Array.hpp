@@ -3,26 +3,23 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 
-template <class T> 
+template <typename T> 
 class Array
 {
     public:
         Array()
         {
             _arr = NULL;
-            _arr_size = 0;
-            std::cout << "no parameter." << std::endl; 
+            _arrSize = 0;
+            std::cout << "no parameter constructor called" << std::endl; 
         }
         Array(unsigned int n)
         {
             _arr = new T[n];
-            _arr_size = n;
-            std::cout << "unsigned n parameter." << std::endl;
-        }
-        Array(const Array& arr)
-        {
-            *this = arr;
+            _arrSize = n;
+            std::cout << "unsigned n parameter constructor called" << std::endl;
         }
         ~Array()
         {
@@ -30,27 +27,45 @@ class Array
             _arr = NULL;
             std::cout << "Destructor called" << std::endl;
         }
-        Array &operator = (const Array& arr)
+        Array(const Array& copy)
         {
-            if (this == &arr)
+            _arr = new T[_arrSize];
+            for (unsigned int i = 0; i < _arrSize; i++)
+                _arr[i] = copy._arr[i];
+        }
+        Array &operator = (const Array& copy)
+        {
+            if (this == &copy)
                 return *this;
-            _arr = arr;
-            _arr_size = arr._arr_size;
+            _arrSize = copy._arrSize;
+            if (_arr)
+                delete [] _arr;
+            _arr = new T[_arrSize];
+            for (unsigned int i = 0; i < _arrSize; i++)
+                _arr[i] = copy._arr[i];
         }
-        T &operator [] (unsigned int n)
+        T &operator [] (unsigned int idx)
         {
-            return (_arr[n]);
+            if (idx >= _arrSize || idx < 0)
+                throw (OutOfTheLimits());
+            return (_arr[idx]);
         }
-
+        unsigned int size()
+        {
+            return _arrSize;
+        }
         class  OutOfTheLimits : public std::exception
 		{
 			public:
-				virtual const char* what(void) const throw() { return ("this element is out of the limits"); }
+				virtual const char* what(void) const throw()
+                {
+                    return ("Out of the Limits");
+                }
 		};
 
     private:
         T *_arr;
-        unsigned int _arr_size;
+        unsigned int _arrSize;
 };
 
 #endif

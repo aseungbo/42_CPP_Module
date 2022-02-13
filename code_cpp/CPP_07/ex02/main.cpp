@@ -1,20 +1,26 @@
 #include "Array.hpp"
 
-int main( void )
+int main(void)
 {
-    // constructor 
-    // no parameter
-    Array<int> empty;
-
+    std::cout << " [ TEST n parameter ] " << std::endl;
+    Array<int> intArr(5);
+    for (unsigned int i = 0; i < intArr.size(); i++)
+    {
+        intArr[i] = i;
+        std::cout << "intArr[" << i << "]: " << intArr[i] << std::endl;
+    }
     std::cout << std::endl;
-
-    // unsigned int n as a parameter
-    Array<int> arr(3);
-    arr[0] = 1, arr[1] = 2, arr[2] = 3;
-    for (int i = 0; i < 3; i++)
-        std::cout << "arr[" << i << "]: " << arr[i] << std::endl;
-
-    
+    try
+    {
+        std::cout << " [ TEST Out of Limits ] " << std::endl;
+        intArr[4] = 10;
+        std::cout << "intArr[4]: " << intArr[4] << std::endl;
+        intArr[5] = 5;
+    }
+    catch(const std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     system("leaks a.out");
     return 0;
 }
