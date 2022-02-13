@@ -21,6 +21,7 @@ int main()
 	deserializePtr = s.deserialize(uptr);
 	std::cout << "deserializePtr: " << deserializePtr << std::endl;
 	std::cout << "deserializePtr value: " << deserializePtr->_val << std::endl;
+	std::cout << std::endl;
 	
 	delete deserializePtr;
 	d = NULL;

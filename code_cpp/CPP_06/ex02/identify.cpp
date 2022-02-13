@@ -7,23 +7,25 @@
 
 void identify(Base* p)
 {
+	std::cout << " [ Pointer Type: "; 
 	A *a = dynamic_cast<A*>(p);
 	if (a != NULL)
-		std::cout << "Pointer func, Class A!" << std::endl;
+		std::cout << "Class A ] " << std::endl;
 	B *b = dynamic_cast<B*>(p);
 	if (b != NULL)
-		std::cout << "Pointer func, Class B!" << std::endl;
+		std::cout << "Class B ]" << std::endl;
 	C *c = dynamic_cast<C*>(p);
 	if (c != NULL)
-		std::cout << "Pointer func, Class C!" << std::endl;
+		std::cout << "Class C ]" << std::endl;
 }
 
 void identify(Base& p)
 {
+	std::cout << " [ Reference Type: "; 
 	try
 	{
 		A a = dynamic_cast<A&>(p);
-		std::cout << "Ref func, Class A!" << std::endl;
+		std::cout << "Class A ] " << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -31,7 +33,7 @@ void identify(Base& p)
 	try
 	{
 		B b = dynamic_cast<B&>(p);
-		std::cout << "Ref func, Class B!" << std::endl;
+		std::cout << "Class B ]" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -39,7 +41,7 @@ void identify(Base& p)
 	try
 	{
 		C c = dynamic_cast<C&>(p);
-		std::cout << "Ref func, Class C!" << std::endl;
+		std::cout << "Class C ] " << std::endl;
 	}
 	catch(const std::exception& e)
 	{

@@ -11,7 +11,8 @@ int main(void)
 
 	identify(basePtr);
 	identify(baseRef);
-
+	std::cout << std::endl;
+	
     delete basePtr;
     system("leaks a.out");
 	return (0);
