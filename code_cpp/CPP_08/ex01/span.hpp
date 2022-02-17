@@ -17,9 +17,9 @@ class Span
 
 		void addNumber(int number);
 		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-		std::vector<int>& getV();
-		int shortestSpan(void);
-		int longestSpan(void);
+		std::vector<int> getV() const;
+		int shortestSpan(void) const;
+		int longestSpan(void) const;
 
 		class FullException : public std::exception
 		{

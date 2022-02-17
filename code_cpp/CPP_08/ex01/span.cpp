@@ -38,38 +38,41 @@ void Span::addNumber(int number)
 
 void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	int addSize = static_cast<int>(end - begin);
-	if ((_v.size() + addSize) > _size)
-		throw (FullException());
-	for (; begin != end; begin++)
-		addNumber(*begin);
+    std::vector<int>::iterator iter;
+    int i = 1;
+    for (iter = begin; iter != end; iter++)
+    {
+        addNumber(i);
+        i++;
+    }
 }
 
-// int Span::shortestSpan(void)
-// {
-// 	if (v.size() < 2)
-// 		throw (NoSpanException());
+int Span::shortestSpan(void) const
+{
+	if (_v.size() <= 1)
+		throw (NoSpanException());
+	return (0);
+}
 
-// 	return(min);
-// }
+int Span::longestSpan(void) const
+{
+	if (_v.size() <= 1)
+		throw (NoSpanException());
+	int longVal = *max_element(_v.begin(), _v.end()) - *min_element(_v.begin(), _v.end());
+	return(longVal);
+}
 
-// int Span::longestSpan(void)
-// {
-// 	if (v.size() < 2)
-// 		throw (NoSpanException());
-// 	return(max);
-// }
-
-std::vector<int>& Span::getV()
+std::vector<int> Span::getV() const
 {
 	return (_v);
 }
 
 const char * Span::FullException::what() const throw()
 {
-    return ("Already full");
+    return ("Already full!");
 }
+
 const char * Span::NoSpanException::what() const throw()
 {
-    return ("No span to find");
+    return ("No span to find!");
 }

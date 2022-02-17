@@ -2,50 +2,50 @@
 
 int main(void)
 {
-	Mutantstack<int> mstack; //돌연변이 stack생성
-	mstack.push(5);			 //첫번째 요소
-	mstack.push(17);		 //두번째 요소
+	std::cout << " [ Test push and pop ] " << std::endl;
+	MutantStack<int> mstack;
+	mstack.push(17);
+	mstack.push(5);
+	std::cout << mstack.top() << std::endl; // 마지막으로 push된 요소(top)
+	mstack.pop();
+	std::cout << mstack.top() << std::endl; // 17
+	std::cout << mstack.size() << std::endl; // stack size 1
+	std::cout << std::endl;
+	std::cout << " [ Test iterator ] " << std::endl;
+	mstack.push(2);
 	mstack.push(3);
 	mstack.push(10);
 	mstack.push(737);
-	mstack.push(1);
-	std::cout << "<basic function test>" << std::endl;			   //마지막 요소
-	std::cout << "size of stack : " << mstack.size() << std::endl; // stack size는 6
-
-	Mutantstack<int>::iterator it = mstack.begin(); //제일 첫번째로 push된 요소(bottom)
-	Mutantstack<int>::iterator ite = mstack.end();	//제일 마지막으로 push된 요소(top)
-
-	std::cout << "first : " << *it << std::endl;				 // 5
-	std::cout << "top of stack : " << mstack.top() << std::endl; // 1
-	std::cout << "last : " << *(ite - 1) << std::endl;			 // 1
+	mstack.push(42);
+	std::cout << "Size of mstack: " << mstack.size() << std::endl; // stack size는 6
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	std::cout << "mstack begin: " << *it << std::endl; // 5
+	std::cout << "mstack last: " << *(ite - 1) << std::endl; // 42
+	std::cout << "top of mstack : " << mstack.top() << std::endl; // 1
 	std::cout << std::endl;
-
-	std::cout << "<operaotr test>" << std::endl;
+	std::cout << " [ Test loop ] " << std::endl;
 	++it;
-	std::cout << "second : " << *it << std::endl; // 17
+	std::cout << "after ++: " << *it << std::endl;
 	--it;
-	std::cout << "first : " << *it << std::endl; // 5
-	std::cout << (it == it) << std::endl;		 // true
-	std::cout << (it != ite) << std::endl;		 // true
-	std::cout << (it < ite) << std::endl;		 // true
-	std::cout << (it > ite) << std::endl;		 // false
-
-	std::cout << std::endl;
-	std::cout << "<values of stack>" << std::endl;
+	std::cout << "after --: " << *it << std::endl;
 	while (it != ite)
 	{
-		std::cout << *it << std::endl; //첫번째 요소부터 마지막 요소까지 출력
+		std::cout << *it << std::endl;
 		++it;
 	}
 	std::cout << std::endl;
-	std::cout << "<stack copy test>" << std::endl;
-
-	std::stack<int> s(mstack);
-	int *begin = &s.top() - (s.size() - 1);
-	int *end = &s.top() + 1;
-	while (begin != end)
+	std::cout << " [ Test reverse_iterator ] " << std::endl;
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
+	while (rit != rite)
 	{
-		std::cout << *begin << std::endl; // mstack과 동일한 요소 출력
-		begin++;
+		std::cout << *rit << std::endl;
+		++rit;
 	}
+	std::cout << std::endl;
+	std::stack<int> s(mstack);
+	std::cout << "size of s: " << s.size() << std::endl;
+	std::cout << "top of s: " << s.top() << std::endl;
+	return 0;
 }
