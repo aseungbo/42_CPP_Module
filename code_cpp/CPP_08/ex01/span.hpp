@@ -14,15 +14,25 @@ class Span
 		Span(unsigned int N);
 		Span(Span& copy);
 		Span& operator = (const Span& span);
-		void addNumber(const int& number);
+
+		void addNumber(int number);
 		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		std::vector<int>& getV();
 		int shortestSpan(void);
 		int longestSpan(void);
-		std::vector<int> getV() const;
+
+		class FullException : public std::exception
+		{
+			const char * what() const throw();
+		};
+		class NoSpanException : public std::exception
+		{
+			const char *what() const throw();
+		};
 
 	private:
-		std::vector<int> v;
-		unsigned int size;
+		std::vector<int> _v;
+		unsigned int _size;
 };
 
 #endif

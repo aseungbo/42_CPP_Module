@@ -1,15 +1,19 @@
 #include "span.hpp"
 
 Span::Span()
-	: size(0)
-	{}
+{
+	_size = 0;
+}
 
 Span::~Span()
-	{}
+{
+	;
+}
 
 Span::Span(unsigned int N)
-	: size(N)
-	{}
+{
+	_size = N;
+}
 
 Span::Span(Span& copy)
 {
@@ -20,66 +24,52 @@ Span& Span::operator = (const Span& span)
 {
 	if (this == &span)
 		return (*this);
-	v = span.v;
-	size = span.size;
+	_v = span._v;
+	_size = span._size;
 	return (*this);
 }
 
-void Span::addNumber(const int& number)
+void Span::addNumber(int number)
 {
-	if (v.size() >= size)
-		throw std::exception();
-	v.push_back(number);
+	if (_v.size() >= _size)
+		throw (FullException());
+	_v.push_back(number);
 }
 
 void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	int gap = static_cast<int>(end - begin);
-	if ((v.size() + gap) >= size)
-		throw std::exception();
-	int i = 1;
-	while (begin++ < end)
-		v.push_back(i++);
+	int addSize = static_cast<int>(end - begin);
+	if ((_v.size() + addSize) > _size)
+		throw (FullException());
+	for (; begin != end; begin++)
+		addNumber(*begin);
 }
 
-int Span::shortestSpan(void)
+// int Span::shortestSpan(void)
+// {
+// 	if (v.size() < 2)
+// 		throw (NoSpanException());
+
+// 	return(min);
+// }
+
+// int Span::longestSpan(void)
+// {
+// 	if (v.size() < 2)
+// 		throw (NoSpanException());
+// 	return(max);
+// }
+
+std::vector<int>& Span::getV()
 {
-	if (v.size() < 2)
-		throw std::exception();
-	std::vector<int>::iterator it = v.begin();
-	int min = INT_MAX;
-	while (it < (v.end() - 1))
-	{
-		int span = *it - *(it + 1);
-		if (span < 0)
-			span *= -1;
-		if (min > span)
-			min = span;
-		it++;
-	}
-	return(min);
+	return (_v);
 }
 
-int Span::longestSpan(void)
+const char * Span::FullException::what() const throw()
 {
-	if (v.size() < 2)
-		throw std::exception();
-
-	std::vector<int>::iterator it = v.begin();
-	int max = 0;
-	while (it < (v.end() - 1))
-	{
-		int span = *it - *(it + 1);
-		if (span < 0)
-			span *= -1;
-		if (max < span)
-			max = span;
-		it++;
-	}
-	return(max);
+    return ("Already full");
 }
-
-std::vector<int> Span::getV() const
+const char * Span::NoSpanException::what() const throw()
 {
-	return (v);
+    return ("No span to find");
 }
