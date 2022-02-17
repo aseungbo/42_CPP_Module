@@ -7,12 +7,12 @@
 # include <vector>
 
 template <typename T>
-typename T::iterator easyfind(T& container, const int& value)
+typename T::iterator easyfind(T container, int val)
 {
-	typename T::iterator iter = std::find(container.begin(), container.end(), value);
+	typename T::iterator iter = std::find(container.begin(), container.end(), val);
 
 	if (iter == container.end())
-		throw std::exception();
+		throw (std::exception());
 	return iter;
 }
 

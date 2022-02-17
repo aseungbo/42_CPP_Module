@@ -2,25 +2,27 @@
 
 int main(void)
 {
-	std::vector<int> vec;
+	std::cout << " [ TEST vector and iter ] " << std::endl;
+	// create vector
+	std::vector<int> v;
 	for (int i = 0; i < 5; i++)
-		vec.push_back(i);
-
-	std::vector<int>::iterator iter = vec.begin();
-	while(iter < vec.end())
+		v.push_back(i);
+	
+	// iter
+	std::vector<int>::iterator iter = v.begin();
+	while(iter < v.end())
 	{
-		std::cout << *iter;
-		if (iter < vec.end() - 1)
-			std::cout << ", ";
+		std::cout << "*iter: " << *iter << std::endl;
 		iter++;
 	}
 	std::cout << std::endl;
+	std::cout << " [ TEST easyfind ] " << std::endl;
 	try
 	{
-		std::vector<int>::iterator iter_1 = easyfind(vec, 2);
-		std::cout << "find!, " << *iter_1 << std::endl;
-		std::vector<int>::iterator iter_2 = easyfind(vec, 4);
-		std::cout << "find!, " << *iter_2 << std::endl;
+		std::vector<int>::iterator iter1 = easyfind(v, 2);
+		std::cout << "*iter1: " << *iter1 << std::endl;
+		std::vector<int>::iterator iter2 = easyfind(v, 10);
+		std::cout << "*iter2: " << *iter2 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
