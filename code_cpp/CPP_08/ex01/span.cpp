@@ -51,15 +51,30 @@ int Span::shortestSpan(void) const
 {
 	if (_v.size() <= 1)
 		throw (NoSpanException());
-	return (0);
+	std::vector<int> spans;
+    for (size_t i = 0; i + 1 < _v.size(); i++)
+    {
+        int span = _v.at(i) - _v.at(i + 1);
+        if (span < 0)
+            span *= -1;
+        spans.push_back(span);
+    }
+    return (*(std::min_element(spans.begin(), spans.end())));
 }
 
 int Span::longestSpan(void) const
 {
 	if (_v.size() <= 1)
 		throw (NoSpanException());
-	int longVal = *max_element(_v.begin(), _v.end()) - *min_element(_v.begin(), _v.end());
-	return(longVal);
+	std::vector<int> spans;
+    for (size_t i = 0; i + 1 < _v.size(); i++)
+    {
+        int span = _v.at(i) - _v.at(i + 1);
+        if (span < 0)
+            span *= -1;
+        spans.push_back(span);
+    }
+    return (*(std::max_element(spans.begin(), spans.end())));
 }
 
 std::vector<int> Span::getV() const
