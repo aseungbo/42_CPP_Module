@@ -36,17 +36,6 @@ void Span::addNumber(int number)
 	_v.push_back(number);
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-    std::vector<int>::iterator iter;
-    int i = 1;
-    for (iter = begin; iter != end; iter++)
-    {
-        addNumber(i);
-        i++;
-    }
-}
-
 int Span::shortestSpan(void) const
 {
 	if (_v.size() <= 1)
@@ -54,7 +43,7 @@ int Span::shortestSpan(void) const
 	std::vector<int> spans;
     for (size_t i = 0; i + 1 < _v.size(); i++)
     {
-        int span = _v.at(i) - _v.at(i + 1);
+        int span = _v[i] - _v[i + 1];
         if (span < 0)
             span *= -1;
         spans.push_back(span);
@@ -69,7 +58,7 @@ int Span::longestSpan(void) const
 	std::vector<int> spans;
     for (size_t i = 0; i + 1 < _v.size(); i++)
     {
-        int span = _v.at(i) - _v.at(i + 1);
+        int span = _v[i] - _v[i + 1];
         if (span < 0)
             span *= -1;
         spans.push_back(span);

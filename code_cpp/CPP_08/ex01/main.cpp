@@ -2,8 +2,9 @@
 
 int main(void)
 {
+	std::cout << " [ TEST subject ] " << std::endl;
 	Span sp(5);
-	sp.addNumber(5);
+	sp.addNumber(6);
 	sp.addNumber(3);
 	sp.addNumber(17);
 	sp.addNumber(9);
@@ -21,18 +22,18 @@ int main(void)
 	}
 	std::cout << std::endl;
 	
-	std::cout << " [TEST 10000 numbers] " << std::endl;
+	std::cout << " [ TEST addNumber and Span ] " << std::endl;
+	std::vector<int> v;
+	for (int i = 0; i < 10000; i++)
+		v.push_back(i);
 	Span sp2(10000);
-    std::vector<int>::iterator begin;
-    begin = sp2.getV().begin();
-    std::vector<int>::iterator end = begin + 10000;
-    sp2.addNumber(begin, end); // 1 ~ 10000까지 숫자 생성
+    sp2.addNumber(v.begin(), v.end());
 
 	std::cout << sp2.shortestSpan() << std::endl;
 	std::cout << sp2.longestSpan() << std::endl;
 	try
 	{
-		sp2.addNumber(42); // throw	
+		sp2.addNumber(42);
 	}
 	catch(const std::exception& e)
 	{
@@ -40,7 +41,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << " [TEST Span Exception] " << std::endl;
+	std::cout << " [ TEST Span Exception ] " << std::endl;
 	Span sp3(3);
 	sp3.addNumber(1);
 	try

@@ -6,7 +6,7 @@ int main(void)
 	MutantStack<int> mstack;
 	mstack.push(17);
 	mstack.push(5);
-	std::cout << mstack.top() << std::endl; // 마지막으로 push된 요소(top) // 5
+	std::cout << mstack.top() << std::endl; // 5
 	mstack.pop();
 	std::cout << mstack.top() << std::endl; // 17
 	std::cout << mstack.size() << std::endl; // stack size 1
@@ -17,7 +17,7 @@ int main(void)
 	mstack.push(10);
 	mstack.push(737);
 	mstack.push(42);
-	std::cout << "Size of mstack: " << mstack.size() << std::endl; // stack size는 6
+	std::cout << "Size of mstack: " << mstack.size() << std::endl; // stack size 6
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	std::cout << "mstack begin: " << *it << std::endl; // 17
@@ -44,8 +44,5 @@ int main(void)
 		++rit;
 	}
 	std::cout << std::endl;
-	std::stack<int> s(mstack);
-	std::cout << "size of s: " << s.size() << std::endl;
-	std::cout << "top of s: " << s.top() << std::endl;
 	return 0;
 }

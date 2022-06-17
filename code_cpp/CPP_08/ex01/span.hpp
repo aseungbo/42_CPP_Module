@@ -16,7 +16,13 @@ class Span
 		Span& operator = (const Span& span);
 
 		void addNumber(int number);
-		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+		template <typename T>
+		void addNumber(T begin, T end)
+		{
+			for (; begin != end; begin++)
+				addNumber(*begin);
+		}
 		std::vector<int> getV() const;
 		int shortestSpan(void) const;
 		int longestSpan(void) const;
