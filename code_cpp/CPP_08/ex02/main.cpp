@@ -44,5 +44,6 @@ int main(void)
 		++rit;
 	}
 	std::cout << std::endl;
+	// system("leaks a.out");
 	return 0;
 }

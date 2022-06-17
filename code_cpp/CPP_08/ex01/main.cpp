@@ -53,5 +53,6 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	// system("leaks a.out");
 	return 0;
 }
